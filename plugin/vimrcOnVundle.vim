@@ -29,7 +29,7 @@ endif
 syntax on "syntax highlight
 "set visualbell "use visual bell
 "set noerrorbel "no error bell
-"set ignorecase "searching ignore case
+set ignorecase "searching ignore case
 "set smartcase "better search 
 set hlsearch " set hight light search
 set incsearch " do incremental searching
@@ -140,12 +140,7 @@ vnoremap <silent> ,?     y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "find first happen in a buffer.
 "vnoremap <silent> ,f     y/\%^\_.\{-}\zs<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "nnoremap ,f     /\%^\_.\{-}\zs
-
-if MySys() == "windows"
-    nmap ,s :source $VIM/_vimrc<cr>
-else 
-    nmap ,s :source $HOME/.vimrc<cr>
-endif 
+"map ,s :source %<cr>
 nmap ,t :tabnew 
 nmap ,c :ConqueTermTab 
 nmap ,w :set wrap<cr>
