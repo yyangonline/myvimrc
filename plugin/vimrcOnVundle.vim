@@ -1,22 +1,4 @@
 
-Bundle 'snipMate'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'The-NERD-Commenter'
-Bundle 'The-NERD-tree'
-Bundle 'FencView.vim'
-Bundle 'matchit.zip' 
-Bundle 'closetag.vim' 
-Bundle 'surround.vim' 
-Bundle 'ctrlp.vim'
-Bundle 'taglist.vim'
-Bundle 'vcscommand.vim'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'fugitive.vim'
-Bundle 'yyangonline/Conque-Shell'
-Bundle 'yyangonline/filtering.vim'
-Bundle 'Emmet.vim'
-Bundle 'clang-complete'
-Bundle 'a.vim'
 
 
 "colorscheme vividchalk
