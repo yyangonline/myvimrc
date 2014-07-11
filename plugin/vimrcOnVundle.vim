@@ -137,6 +137,7 @@ map <S-Insert> "+gP
 imap <S-Insert> <c-o>"+gP
 vnoremap <silent> ,/     y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR> 
 vnoremap <silent> ,?     y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+map g/ //b<cr>v//e<cr>
 "find first happen in a buffer.
 "vnoremap <silent> ,f     y/\%^\_.\{-}\zs<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "nnoremap ,f     /\%^\_.\{-}\zs
