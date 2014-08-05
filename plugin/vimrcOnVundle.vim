@@ -200,7 +200,7 @@ set grepprg=grep\ -I\ -nrH\ --devices=skip\ --exclude\ \"*.svn-base\"\ --exclude
 au FileType qf :nnoremap <buffer> v <Enter>zz:wincmd p<Enter>
 
 "Get the vim command output    
-command! -nargs=* Mc redir @"> | try | exe "<args>" | finally | redir END | endtry
+command! -nargs=* Mc redir @"> | try | silent exe "<args>" | finally | redir END | endtry
 
 "lcd %:p:h
 " current file fullname
@@ -319,6 +319,15 @@ nmap <leader>uq :call g:ClangUpdateQuickFix()
    let g:UltiSnipsJumpForwardTrigger="<tab>"
    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+"Surrounded
+let b:surround_{char2nr("v")} = "{{ \r }}"
+let b:surround_{char2nr("{")} = "{{ \r }}"
+let b:surround_{char2nr("%")} = "{% \r %}"
+let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 "=============================================================================
 " Programming setting
@@ -331,8 +340,10 @@ augroup filetypedetect
     au BufNewFile,BufRead *.htm setf html
     au BufNewFile,BufRead *.m setf c 
     autocmd FileType make setlocal noexpandtab
-    autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
-    autocmd FileType sh set tabstop=4|set shiftwidth=4|set expandtab
+    autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab
+    autocmd FileType sh set sts=4|set tabstop=4|set shiftwidth=4|set expandtab
+    "autocmd FileType html set ft=htmldjango.html " For SnipMate
+    autocmd FileType html set ft=htmldjango " For SnipMate
 augroup END
 
 
@@ -472,3 +483,6 @@ function! UpdateGtags(f)
      "exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
      silent exec '!global -u &> /dev/null &'
 endfunction
+
+
+
