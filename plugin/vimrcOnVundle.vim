@@ -383,6 +383,16 @@ function! s:Hex2dec(line1, line2, arg) range
     endif
 endfunction
 
+
+
+command! -nargs=? -range Jsonfmt call s:Jsonfmt(<line1>, <line2>, '<args>')
+function! s:Jsonfmt(line1, line2, arg) range
+	    let cmd = "s/\'/\"/g"
+	    let py_json_tool = '!python -m json.tool'
+	    execute a:line1 . ',' . a:line2 . cmd
+	    execute a:line1 . ',' . a:line2 . py_json_tool
+endfunction
+
 " ebcdic convertion with ascii
 "func! EBCDIC2ascii()
 "set shellredir=>%s
