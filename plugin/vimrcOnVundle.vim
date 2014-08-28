@@ -456,42 +456,50 @@ function! VimEnterCallback()
 endfunc
  
 function! FindGtags(f)
-     let curFile= fnamemodify(a:f, ':p')
-     if !filereadable(curFile)
+    "echom "findtags >>>". strftime("%c")
+    let curFile= fnamemodify(a:f, ':p')
+    if !filereadable(curFile)
 	"we don't care about special bufs
-     	return 
-     endif
+	return 
+    endif
 
-     let dir = fnamemodify(a:f, ':p:h')
-     while 1
-	 let tmp = dir . '/GTAGS'
-	 " Most of our python project is using pydev
-	 let tmp_python = dir . '/.pydevproject'
-	 if filereadable(tmp_python)
-         exec 'let $PYTHONPATH="'.dir.'/src:'.dir.'"'		     
-         "exec 'set PYTHONPATH="'.dir.'/src:'.dir.'"'		     
-         "exec 'export PYTHONPATH="'.dir.'/src:'.dir.'"'		     
-	     exec 'py import os;os.environ["PYTHONPATH"]="'.dir.'/src:'.dir.'"'
+    let dir = fnamemodify(a:f, ':p:h')
+    while 1
 
-	 endi
-	 if filereadable(tmp)
-	     silent echo dir
-	     silent exec 'lcd' dir
-	     silent exec 'cs add ' . tmp . ' ' . dir
-	     break
-	 elseif dir == '/' || dir =~ ':\\$' || dir =~ ':\/$'
-	     break
-	 endif
- 
-	 let dir = fnamemodify(dir, ":h")
-     endwhile
+	"echom dir. strftime("%c") . ">>>>>"
+	let tmp = dir . '/GTAGS'
+	" Most of our python project is using pydev
+	let tmp_python = dir . '/.pydevproject'
+	if filereadable(tmp_python)
+	    exec 'let $PYTHONPATH="'.dir.'/src:'.dir.'"'		     
+	    "exec 'set PYTHONPATH="'.dir.'/src:'.dir.'"'		     
+	    "exec 'export PYTHONPATH="'.dir.'/src:'.dir.'"'		     
+	    exec 'py import os;os.environ["PYTHONPATH"]="'.dir.'/src:'.dir.'"'
+
+	endi
+	if filereadable(tmp)
+	    silent echo dir
+	    silent exec 'lcd' dir
+	    silent exec 'cs add ' . tmp . ' ' . dir
+	    break
+	elseif dir == '/' || dir =~ ':\\$' || dir =~ ':\/$'
+	    break
+	endif
+
+	let dir = fnamemodify(dir, ":h")
+	if dir == fnamemodify(dir, ":h") 
+	    break
+	endif
+	"echom dir. strftime("%c") . "<<<<<<<"
+    endwhile
+    "echom "findtags <<<<". strftime("%c")
 endfunc
- 
+
 function! UpdateGtags(f)
-     call FindGtags(a:f)
-     "let dir = fnamemodify(a:f, ':p:h')
-     "exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
-     silent exec '!global -u &> /dev/null &'
+    call FindGtags(a:f)
+    "let dir = fnamemodify(a:f, ':p:h')
+    "exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
+    "silent exec '!global -u &> /dev/null &'
 endfunction
 
 
