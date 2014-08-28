@@ -232,16 +232,16 @@ let g:NERDCustomDelimiters = {
 \ }
 
 "-------------------------------------------------------- 
-"netrw
-let g:netrw_ftp_list_cmd      = 'ls'
-let g:netrw_ftpmode           = 'ascii'
-let g:netrw_browse_split      = 3
+""netrw
+"let g:netrw_ftp_list_cmd      = 'ls'
+"let g:netrw_ftpmode           = 'ascii'
+"let g:netrw_browse_split      = 3
 
-let g:netrw_cygwin = 0
-let g:netrw_ssh_cmd  = '"plink.exe" -batch -T -ssh'
-let g:netrw_scp_cmd  = '"pscp.exe"  -q -scp'
-"let g:netrw_sftp_cmd  = '"pscp.exe"  -q -sftp'
-let g:netrw_sftp_cmd = '"psftp.exe"'
+"let g:netrw_cygwin = 0
+"let g:netrw_ssh_cmd  = '"plink.exe" -batch -T -ssh'
+"let g:netrw_scp_cmd  = '"pscp.exe"  -q -scp'
+""let g:netrw_sftp_cmd  = '"pscp.exe"  -q -sftp'
+"let g:netrw_sftp_cmd = '"psftp.exe"'
 
 " ========================================================= 
 "let g:ctrlp_by_filename = 1
