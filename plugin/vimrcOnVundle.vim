@@ -287,6 +287,15 @@ let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,*.svn*,*.so,*.a,*.o,*.pyc"
 " jedi-vim
 let g:jedi#call_signature_escape=1 
 
+
+"========================================================= 
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+	\ 'active_filetypes': [],
+	\ 'passive_filetypes': ['html'] }
+
+let g:syntastic_python_checkers = ['pyflakes']
+
 "========================================================= 
 " emmet
 let g:user_emmet_expandabbr_key='<c-e>' 
@@ -340,7 +349,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.htm setf html
     au BufNewFile,BufRead *.m setf c 
     autocmd FileType make setlocal noexpandtab
-    autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab
+    autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab |set foldmethod=indent
     autocmd FileType sh set sts=4|set tabstop=4|set shiftwidth=4|set expandtab
     "autocmd FileType html set ft=htmldjango.html " For SnipMate
     autocmd FileType html set ft=htmldjango " For SnipMate
