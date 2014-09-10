@@ -35,7 +35,10 @@ set hlsearch " set hight light search
 set incsearch " do incremental searching
 set hid " you can change buffer without saving
 set showmatch " show matching brackets
-"set list
+"show  special chars
+set listchars=eol:$,tab:>-
+"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list
 "set mat=5 " how many tenths of a second to blink matching brackets for
 
 set cursorline
