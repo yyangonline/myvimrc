@@ -14,15 +14,20 @@ filetype plugin indent on     " required!
 "=============================================================================
 ""GUI setting""""""""""""""""""""""""""""""""""""""""
 "let $VIMFILES = $HOME.'/.vim'
-colo evening
+syntax enable
+colorscheme solarized
 if has("gui_running")&& has("autocmd")
     set guioptions-=T
     set guitablabel=%{tabpagenr()}.%t\ %m
     set guitabtooltip=%F
     set mouse=a
+    "colo evening
+    "set background=light
+    set background=dark
 
     set showtabline=2
 else
+    set background=dark
     set wrap
 endif
 
@@ -298,6 +303,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 	\ 'passive_filetypes': ['html'] }
 
 let g:syntastic_python_checkers = ['pyflakes']
+
+"To enable Just puppet-lint and disable the parser uncomment next line
+"let g:syntastic_puppet_checkers=['puppet-lint']
 
 "========================================================= 
 " emmet
