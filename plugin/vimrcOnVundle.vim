@@ -15,7 +15,6 @@ filetype plugin indent on     " required!
 ""GUI setting""""""""""""""""""""""""""""""""""""""""
 "let $VIMFILES = $HOME.'/.vim'
 syntax enable
-colorscheme solarized
 if has("gui_running")&& has("autocmd")
     set guioptions-=T
     set guitablabel=%{tabpagenr()}.%t\ %m
@@ -24,10 +23,11 @@ if has("gui_running")&& has("autocmd")
     "colo evening
     "set background=light
     set background=dark
+    colorscheme solarized
 
     set showtabline=2
 else
-    set background=dark
+    "set background=light
     set wrap
 endif
 
@@ -361,6 +361,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.m setf c 
     autocmd FileType make setlocal noexpandtab
     autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab |set foldmethod=indent
+    autocmd FileType c,cpp,java set sts=4| set tabstop=4|set shiftwidth=4|set expandtab 
     autocmd FileType sh set sts=4|set tabstop=4|set shiftwidth=4|set expandtab
     "autocmd FileType html set ft=htmldjango.html " For SnipMate
     autocmd FileType html set ft=htmldjango " For SnipMate
