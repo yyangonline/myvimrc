@@ -151,7 +151,10 @@ map g/ //b<cr>v//e<cr>
 "nnoremap ,f     /\%^\_.\{-}\zs
 "map ,s :source %<cr>
 nmap ,t :tabnew 
-nmap ,c :ConqueTermTab 
+nmap ,bd :bd!<cr>
+"nmap ,c :ConqueTermTab 
+"nmap ,c :ConqueTermVSplit bash --login -i<cr>
+nmap ,c :ConqueTermTab
 nmap ,w :set wrap<cr>
 map ,ig :set  ignorecase<cr>
 map ,nig :set noignorecase<cr>
@@ -311,7 +314,9 @@ let g:syntastic_python_checkers = ['pyflakes']
 " emmet
 let g:user_emmet_expandabbr_key='<c-e>' 
 "execute current line
-map ,ssh 0y$:call conque_term#open('ssh '.@",['tabnew'])<cr>
+"map ,ssh F yf :call conque_term#open('ssh '.@",['tabnew'])<crh
+map ,ssh F yf :call conque_term#open('ssh '.@")<cr>
+map ,bs :call conque_term#open('bash --login -i',['vsplit'])<cr>
 
 
 "========================================================= 
@@ -322,6 +327,7 @@ map ,ssh 0y$:call conque_term#open('ssh '.@",['tabnew'])<cr>
     "let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
 "endif
 
+    let g:ConqueTerm_TERM='xterm' 
 "========================================================= 
 "clang_complete
 let g:clang_exec='clang++'
