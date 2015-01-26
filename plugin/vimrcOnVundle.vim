@@ -150,8 +150,11 @@ map g/ //b<cr>v//e<cr>
 "vnoremap <silent> ,f     y/\%^\_.\{-}\zs<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "nnoremap ,f     /\%^\_.\{-}\zs
 "map ,s :source %<cr>
+"map ,ssh F yf :call conque_term#open('ssh '.@",['tabnew'])<crh
+map ,ssh F yf :call conque_term#open('ssh '.@")<cr>
+map ,bs :call conque_term#open('bash --login -i',['vsplit'])<cr>
 nmap ,t :tabnew 
-nmap ,bd :bd!<cr>
+nmap ,bd :bd<cr>
 "nmap ,c :ConqueTermTab 
 "nmap ,c :ConqueTermVSplit bash --login -i<cr>
 nmap ,c :ConqueTermTab
@@ -314,9 +317,6 @@ let g:syntastic_python_checkers = ['pyflakes']
 " emmet
 let g:user_emmet_expandabbr_key='<c-e>' 
 "execute current line
-"map ,ssh F yf :call conque_term#open('ssh '.@",['tabnew'])<crh
-map ,ssh F yf :call conque_term#open('ssh '.@")<cr>
-map ,bs :call conque_term#open('bash --login -i',['vsplit'])<cr>
 
 
 "========================================================= 
