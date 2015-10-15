@@ -155,7 +155,7 @@ map ,ssh F yf :call conque_term#open('ssh '.@")<cr>
 map ,bs :call conque_term#open('bash --login -i',['vsplit'])<cr>
 map ,py :call conque_term#open('python',['split'])<cr>
 nmap ,t :tabnew 
-nmap ,lcd :lcd %:p:h
+nmap ,lcd :lcd %:p:h<cr>
 nmap ,bd :bd<cr>
 "nmap ,c :ConqueTermTab 
 "nmap ,c :ConqueTermVSplit bash --login -i<cr>
