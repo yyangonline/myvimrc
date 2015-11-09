@@ -23,7 +23,7 @@ if has("gui_running")&& has("autocmd")
     "colo evening
     "set background=light
     set background=dark
-    colorscheme solarized
+    colorscheme evening
 
     set showtabline=2
 else
@@ -41,10 +41,13 @@ set incsearch " do incremental searching
 set hid " you can change buffer without saving
 set showmatch " show matching brackets
 "show  special chars
-set listchars=eol:$,tab:>-
+"set listchars=eol:$,tab:>-
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set list
+"set list
 "set mat=5 " how many tenths of a second to blink matching brackets for
+
+"set shell=zsh\ -i
+
 
 set cursorline
 "set im!  "
@@ -152,11 +155,11 @@ map g/ //b<cr>v//e<cr>
 "map ,s :source %<cr>
 "map ,ssh F yf :call conque_term#open('ssh '.@",['tabnew'])<crh
 map ,ssh F yf :call conque_term#open('ssh '.@")<cr>
-map ,bs :call conque_term#open('bash --login -i',['vsplit'])<cr>
+map ,bs :call conque_term#open('zsh --login -i',['vsplit'])<cr>
 map ,py :call conque_term#open('python',['split'])<cr>
 nmap ,t :tabnew 
 nmap ,lcd :lcd %:p:h<cr>
-nmap ,bd :bd<cr>
+nmap ,bd :bd!<cr>
 "nmap ,c :ConqueTermTab 
 "nmap ,c :ConqueTermVSplit bash --login -i<cr>
 nmap ,c :ConqueTermTab
@@ -209,7 +212,7 @@ vmap < <gv
 "map close buf
 map <c-F4> :bd!<cr>
 "search diary
-set grepprg=grep\ -I\ -nrH\ --devices=skip\ --exclude\ \"*.svn-base\"\ --exclude\ \"tags\"\ $*\ \* 
+set grepprg=grep\ -I\ -nH\ --devices=skip\ --exclude\ \"*.svn-base\"\ --exclude\ \"tags\"\ $*\ \* 
 
 
 "quickfix window open in buffer
@@ -341,6 +344,8 @@ let g:clang_periodic_quickfix=1
 nmap <leader>uq :call g:ClangUpdateQuickFix()
 "let g:clang_user_library=1
 
+
+
 "========================================================= 
 "ultisnips
    let g:UltiSnipsExpandTrigger="<tab>"
@@ -357,6 +362,13 @@ let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
+
+"  ternjs
+let g:tern_map_keys=1
+let g:tern#command=['/usr/local/bin/node', '/Users/a/.vim/bundle/tern_for_vim/autoload/../node_modules/tern/bin/tern']
+
+
+let g:vim_markdown_folding_disabled=1
 "=============================================================================
 " Programming setting
 "=============================================================================
@@ -530,6 +542,5 @@ function! UpdateGtags(f)
     "exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
     "silent exec '!global -u &> /dev/null &'
 endfunction
-
 
 
