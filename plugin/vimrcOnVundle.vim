@@ -69,7 +69,7 @@ set viminfo+=! "netrw bookmarks
 
 "set statusline=%<%F%h%m%r%=\ [%{&ff}]\ type=\%y\ [len=\%L]\ [pos=%\P]
 "set statusline=%<%F%h%m%r%=\ [%{&ff}]\ [len=\%L]\ [pos=\%l,\%c]
-set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{fugitive#statusline()}\ %{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
+"set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{fugitive#statusline()}\ %{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
 set laststatus=2
 "tab view settings
 
@@ -87,28 +87,28 @@ set wildmenu
 set wildignore=*/.hg/*,*/.svn/*
 
 " return OS type, eg: windows, or linux, mac, et.st..
-function! MySys()
-    if has("win16") || has("WIN32") || has("win64") || has("win95")
-	return "windows"
-    elseif has("unix")
-	return "linux"
-    endif
-endfunction
+"function! MySys()
+    "if has("win16") || has("WIN32") || has("win64") || has("win95")
+	"return "windows"
+    "elseif has("unix")
+	"return "linux"
+    "endif
+"endfunction
 
-" $VIMFILES
-if MySys() == "windows"
-    let $VIMFILES = $VIM.'/vimfiles'
+"" $VIMFILES
+"if MySys() == "windows"
     "let $VIMFILES = $VIM.'/vimfiles'
-    " backup"""""""""""""""""""""""
-    set backup
-    set backupdir=$TMP "backup directory
-    "swap dir
-    set directory=$TMP
-    " view dir"""""""""""""""""""""""
-    "set viewdir=$TMP/.vim/view "view directory
-elseif MySys() == "linux"
-    let $VIMFILES = $HOME.'/.vim'
-endif
+    ""let $VIMFILES = $VIM.'/vimfiles'
+    "" backup"""""""""""""""""""""""
+    "set backup
+    "set backupdir=$TMP "backup directory
+    ""swap dir
+    "set directory=$TMP
+    "" view dir"""""""""""""""""""""""
+    ""set viewdir=$TMP/.vim/view "view directory
+"elseif MySys() == "linux"
+    "let $VIMFILES = $HOME.'/.vim'
+"endif
 
 
 
@@ -120,8 +120,8 @@ set fo+=mB "make gq can deal with Chinese charactor
 "abbreviate""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab xtime <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
 iab xdate <c-r>=strftime("%Y-%m-%d")<cr>
-nmap <f6> o========================================================= <cr>
-imap <f6> <cr>========================================================= <cr>
+nmap <f6> o------------------------- <cr>
+imap <f6> <cr>----------------------- <cr>
 nmap <c-f6> o--------------------------------------------------------- <cr>
 imap <c-f6> <cr>--------------------------------------------------------- <cr>
 
@@ -426,13 +426,13 @@ endfunction
 
 
 
-command! -nargs=? -range Jsonfmt call s:Jsonfmt(<line1>, <line2>, '<args>')
-function! s:Jsonfmt(line1, line2, arg) range
-	    let cmd = "s/\'/\"/g"
-	    let py_json_tool = '!python -m json.tool'
-	    execute a:line1 . ',' . a:line2 . cmd
-	    execute a:line1 . ',' . a:line2 . py_json_tool
-endfunction
+"command! -nargs=? -range Jsonfmt call s:Jsonfmt(<line1>, <line2>, '<args>')
+"function! s:Jsonfmt(line1, line2, arg) range
+	    "let cmd = "s/\'/\"/g"
+	    "let py_json_tool = '!python -m json.tool'
+	    "execute a:line1 . ',' . a:line2 . cmd
+	    "execute a:line1 . ',' . a:line2 . py_json_tool
+"endfunction
 
 " ebcdic convertion with ascii
 "func! EBCDIC2ascii()
@@ -451,96 +451,96 @@ endfunction
 "" settings of cscope.
 ""
 "" I use GNU global instead cscope because global is faster.
-set cscopetag
-set cscopeprg=gtags-cscope
-set cscopequickfix=c-,d-,e-,f-,g0,i-,s-,t-
-nmap ,ff :lcs f f 
-"map ,ff  :copen \| cs f f
-"map ,FF :FindFiles **/*.\(c\\|cpp\\|h\\|m\\|hxx\\|cxx\\|hpp\\|mm\) [seach_dir]
-map ,gu :!global -u<cr>
-nmap <silent> <leader>fg <ESC>:lcs f g <c-r><c-w><CR>
-nmap <silent> <leader>ft <ESC>:lcs f t <c-r><c-w><CR>:lw<cr>
-nmap <silent> <leader>fc <ESC>:lcs f c <c-r><c-w><cr>:lw<cr>
-nmap <silent> <leader>fs <ESC>:lcs f s <c-r><c-w><cr>:lw<cr>
-nmap <silent> <leader>ff <ESC>:lcs f f <c-r><c-w><cr>:lw<cr>
-nmap <silent> <leader>fi <ESC>:lcs f i <c-r><c-w><cr>:lw<cr>
-command! -nargs=+ -complete=dir FindFiles :call FindFiles(<f-args>)
-au VimEnter * call VimEnterCallback()
-au BufAdd *  call FindGtags(expand('<afile>'))
-au BufWritePost *.\(java\|c\|cpp\|h\|m\|hxx\|cxx\|hpp\|mm\|py\) call UpdateGtags(expand('<afile>'))
+"set cscopetag
+"set cscopeprg=gtags-cscope
+"set cscopequickfix=c-,d-,e-,f-,g0,i-,s-,t-
+"nmap ,ff :lcs f f 
+""map ,ff  :copen \| cs f f
+""map ,FF :FindFiles **/*.\(c\\|cpp\\|h\\|m\\|hxx\\|cxx\\|hpp\\|mm\) [seach_dir]
+"map ,gu :!global -u<cr>
+"nmap <silent> <leader>fg <ESC>:lcs f g <c-r><c-w><CR>
+"nmap <silent> <leader>ft <ESC>:lcs f t <c-r><c-w><CR>:lw<cr>
+"nmap <silent> <leader>fc <ESC>:lcs f c <c-r><c-w><cr>:lw<cr>
+"nmap <silent> <leader>fs <ESC>:lcs f s <c-r><c-w><cr>:lw<cr>
+"nmap <silent> <leader>ff <ESC>:lcs f f <c-r><c-w><cr>:lw<cr>
+"nmap <silent> <leader>fi <ESC>:lcs f i <c-r><c-w><cr>:lw<cr>
+"command! -nargs=+ -complete=dir FindFiles :call FindFiles(<f-args>)
+"au VimEnter * call VimEnterCallback()
+"au BufAdd *  call FindGtags(expand('<afile>'))
+"au BufWritePost *.\(java\|c\|cpp\|h\|m\|hxx\|cxx\|hpp\|mm\|py\) call UpdateGtags(expand('<afile>'))
  
-function! FindFiles(pat, ...)
-     let path = ''
-     for str in a:000
-	 let path .= str . ','
-     endfor
+"function! FindFiles(pat, ...)
+     "let path = ''
+     "for str in a:000
+	 "let path .= str . ','
+     "endfor
  
-     if path == ''
-	 let path = &path
-     endif
+     "if path == ''
+	 "let path = &path
+     "endif
  
-     echo 'finding...'
-     redraw
-     call append(line('$'), split(globpath(path, a:pat), '\n'))
-     echo 'finding...done!'
-     redraw
-endfunc
+     "echo 'finding...'
+     "redraw
+     "call append(line('$'), split(globpath(path, a:pat), '\n'))
+     "echo 'finding...done!'
+     "redraw
+"endfunc
  
-function! VimEnterCallback()
-     for f in argv()
-	 if fnamemodify(f, ':e') != 'c' && fnamemodify(f, ':e') != 'h'
-	     continue
-	 endif
+"function! VimEnterCallback()
+     "for f in argv()
+	 "if fnamemodify(f, ':e') != 'c' && fnamemodify(f, ':e') != 'h'
+	     "continue
+	 "endif
  
-	 call FindGtags(f)
-     endfor
-endfunc
+	 "call FindGtags(f)
+     "endfor
+"endfunc
  
-function! FindGtags(f)
-    "echom "findtags >>>". strftime("%c")
-    let curFile= fnamemodify(a:f, ':p')
-    if !filereadable(curFile)
-	"we don't care about special bufs
-	return 
-    endif
+"function! FindGtags(f)
+    ""echom "findtags >>>". strftime("%c")
+    "let curFile= fnamemodify(a:f, ':p')
+    "if !filereadable(curFile)
+	""we don't care about special bufs
+	"return 
+    "endif
 
-    let dir = fnamemodify(a:f, ':p:h')
-    while 1
-
-	"echom dir. strftime("%c") . ">>>>>"
-	let tmp = dir . '/GTAGS'
-	" Most of our python project is using pydev
-	let tmp_python = dir . '/.pydevproject'
-	if filereadable(tmp_python)
-	    exec 'let $PYTHONPATH="'.dir.'/src:'.dir.'"'		     
-	    "exec 'set PYTHONPATH="'.dir.'/src:'.dir.'"'		     
-	    "exec 'export PYTHONPATH="'.dir.'/src:'.dir.'"'		     
-	    exec 'py import os;os.environ["PYTHONPATH"]="'.dir.'/src:'.dir.'"'
-
-	endi
-	if filereadable(tmp)
-	    silent echo dir
-	    silent exec 'lcd' dir
-	    silent exec 'cs add ' . tmp . ' ' . dir
-	    break
-	elseif dir == '/' || dir =~ ':\\$' || dir =~ ':\/$'
-	    break
-	endif
-
-	let dir = fnamemodify(dir, ":h")
-	if dir == fnamemodify(dir, ":h") 
-	    break
-	endif
-	"echom dir. strftime("%c") . "<<<<<<<"
-    endwhile
-    "echom "findtags <<<<". strftime("%c")
-endfunc
-
-function! UpdateGtags(f)
-    call FindGtags(a:f)
     "let dir = fnamemodify(a:f, ':p:h')
-    "exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
-    "silent exec '!global -u &> /dev/null &'
-endfunction
+    "while 1
+
+	""echom dir. strftime("%c") . ">>>>>"
+	"let tmp = dir . '/GTAGS'
+	"" Most of our python project is using pydev
+	"let tmp_python = dir . '/.pydevproject'
+	"if filereadable(tmp_python)
+	    "exec 'let $PYTHONPATH="'.dir.'/src:'.dir.'"'		     
+	    ""exec 'set PYTHONPATH="'.dir.'/src:'.dir.'"'		     
+	    ""exec 'export PYTHONPATH="'.dir.'/src:'.dir.'"'		     
+	    "exec 'py import os;os.environ["PYTHONPATH"]="'.dir.'/src:'.dir.'"'
+
+	"endi
+	"if filereadable(tmp)
+	    "silent echo dir
+	    "silent exec 'lcd' dir
+	    "silent exec 'cs add ' . tmp . ' ' . dir
+	    "break
+	"elseif dir == '/' || dir =~ ':\\$' || dir =~ ':\/$'
+	    "break
+	"endif
+
+	"let dir = fnamemodify(dir, ":h")
+	"if dir == fnamemodify(dir, ":h") 
+	    "break
+	"endif
+	""echom dir. strftime("%c") . "<<<<<<<"
+    "endwhile
+    ""echom "findtags <<<<". strftime("%c")
+"endfunc
+
+"function! UpdateGtags(f)
+    "call FindGtags(a:f)
+    ""let dir = fnamemodify(a:f, ':p:h')
+    ""exe 'silent !cd ' . dir . ' && global -u &> /dev/null &'
+    ""silent exec '!global -u &> /dev/null &'
+"endfunction
 
 
