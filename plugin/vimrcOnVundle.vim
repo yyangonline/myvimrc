@@ -67,9 +67,6 @@ set viminfo+=! "netrw bookmarks
 "set foldopen-=search " don't open folds when you search into them
 "set foldopen-=undo " don't open folds when you undo stuff
 
-"set statusline=%<%F%h%m%r%=\ [%{&ff}]\ type=\%y\ [len=\%L]\ [pos=%\P]
-"set statusline=%<%F%h%m%r%=\ [%{&ff}]\ [len=\%L]\ [pos=\%l,\%c]
-"set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{fugitive#statusline()}\ %{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
 set laststatus=2
 "tab view settings
 
@@ -327,12 +324,8 @@ let g:user_emmet_expandabbr_key='<c-e>'
 "========================================================= 
 " ConqueTerm
 
-"if MySys() != "windows"
-    ""let g:ConqueTerm_TERM='xterm' 
-    "let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
-"endif
 
-    let g:ConqueTerm_TERM='xterm' 
+let g:ConqueTerm_TERM='xterm' 
 "========================================================= 
 "clang_complete
 let g:clang_exec='clang++'
@@ -426,13 +419,6 @@ endfunction
 
 
 
-"command! -nargs=? -range Jsonfmt call s:Jsonfmt(<line1>, <line2>, '<args>')
-"function! s:Jsonfmt(line1, line2, arg) range
-	    "let cmd = "s/\'/\"/g"
-	    "let py_json_tool = '!python -m json.tool'
-	    "execute a:line1 . ',' . a:line2 . cmd
-	    "execute a:line1 . ',' . a:line2 . py_json_tool
-"endfunction
 
 " ebcdic convertion with ascii
 "func! EBCDIC2ascii()
