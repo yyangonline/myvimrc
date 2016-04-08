@@ -42,7 +42,7 @@ set hid " you can change buffer without saving
 set showmatch " show matching brackets
 "show  special chars
 "set listchars=eol:$,tab:>-
-"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 "set list
 "set mat=5 " how many tenths of a second to blink matching brackets for
 
@@ -71,7 +71,7 @@ set laststatus=2
 "tab view settings
 
 
-set fileformats=unix,dos "use unix format as default
+set fileformats=dos,unix "use unix format as default
 set fileformat=unix "use unix format as default
 
 "set   clipboard=unnamed
