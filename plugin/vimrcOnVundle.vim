@@ -270,8 +270,10 @@ let g:ctrlp_working_path_mode = 0 " use NerdTree to change the directory, we hav
     "\ 'file': '\v\.(exe|so|dll)$',
     "\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     "\ }
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_custom_ignore={
-	    \ 'dir': '\.git$\|\.hg$\|\.svn$',
+	    \ 'dir': '\.git$\|\.hg$\|\.svn$|node_modules$',
 	    \ 'file': '\.class$\|\.o$\|\.d$|\.pyc$',
 	    \}
 
