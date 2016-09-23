@@ -209,7 +209,7 @@ vmap < <gv
 "map close buf
 map <c-F4> :bd!<cr>
 "search diary
-set grepprg=grep\ -I\ -nH\ --devices=skip\ --exclude\ \"*.svn-base\"\ --exclude\ \"tags\"\ $*\ \*
+set grepprg=grep\ -rI\ -nH\ --devices=skip\ --exclude\ \"*.svn-base\"\ --exclude\ \"*node_modules\"\ --exclude\ \"tags\"\ 2>\/dev\/null\ $*
 
 
 "quickfix window open in buffer
@@ -273,7 +273,7 @@ let g:ctrlp_working_path_mode = 0 " use NerdTree to change the directory, we hav
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_custom_ignore={
-	    \ 'dir': '\.git$\|\.hg$\|\.svn$|node_modules$',
+	    \ 'dir': '\.git$\|\.hg$\|\.svn$\|node_modules$',
 	    \ 'file': '\.class$\|\.o$\|\.d$|\.pyc$',
 	    \}
 
@@ -313,7 +313,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 	\ 'passive_filetypes': ['html'] }
 
 let g:syntastic_python_checkers = ['pyflakes']
-
+let g:syntastic_check_on_open=1
 "To enable Just puppet-lint and disable the parser uncomment next line
 "let g:syntastic_puppet_checkers=['puppet-lint']
 
@@ -360,7 +360,7 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 "  ternjs
 let g:tern_map_keys=1
-let g:tern#command=['/usr/local/bin/node', '/Users/a/.vim/bundle/tern_for_vim/autoload/../node_modules/tern/bin/tern']
+"let g:tern#command=['/usr/local/bin/node', '/Users/a/.vim/bundle/tern_for_vim/autoload/../node_modules/tern/bin/tern']
 map ,d :TernDef <cr>
 "| map <c-]> :TernDef <cr> | map ,d :TernDef <cr>
 
