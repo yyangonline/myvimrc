@@ -71,7 +71,7 @@ set laststatus=2
 "tab view settings
 
 
-set fileformats=dos,unix "use unix format as default
+set fileformats=unix,dos "use unix format as default
 set fileformat=unix "use unix format as default
 
 "set   clipboard=unnamed
@@ -209,7 +209,7 @@ vmap < <gv
 "map close buf
 map <c-F4> :bd!<cr>
 "search diary
-set grepprg=grep\ -rI\ -nH\ --devices=skip\ --exclude\ \"*.svn-base\"\ --exclude\ \"*node_modules\"\ --exclude\ \"tags\"\ 2>\/dev\/null\ $*
+set grepprg=grep\ -rI\ -nsH\ --devices=skip\ --exclude={tags,.svn-base}\ -E\ --exclude-dir={.git,node_modules}\ 2>\/dev\/null\ $*
 
 
 "quickfix window open in buffer
