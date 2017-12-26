@@ -14,7 +14,7 @@ filetype plugin indent on     " required!
 "=============================================================================
 ""GUI setting""""""""""""""""""""""""""""""""""""""""
 "let $VIMFILES = $HOME.'/.vim'
-syntax enable
+"syntax enable
 if has("gui_running")&& has("autocmd")
     set guioptions-=T
     set guitablabel=%{tabpagenr()}.%t\ %m
@@ -74,7 +74,7 @@ set laststatus=2
 set fileformats=unix,dos "use unix format as default
 set fileformat=unix "use unix format as default
 
-"set   clipboard=unnamed
+set   clipboard=unnamed
 "set clipboard+=unnamed
 "set clipboard*=unnamed
 "wildmenu"""""""""""""""""""""""""""""""""""""""""
@@ -366,6 +366,7 @@ map ,d :TernDef <cr>
 
 
 let g:vim_markdown_folding_disabled=1
+let g:markdown_syntax_conceal = 0
 "=============================================================================
 " Programming setting
 "=============================================================================
