@@ -28,6 +28,7 @@ if has("gui_running")&& has("autocmd")
     set showtabline=2
 else
     "set background=light
+    set term=screen-256color
     set wrap
 endif
 
@@ -40,6 +41,7 @@ set hlsearch " set hight light search
 set incsearch " do incremental searching
 set hid " you can change buffer without saving
 set showmatch " show matching brackets
+set cmdheight=2
 "show  special chars
 "set listchars=eol:$,tab:>-
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -74,7 +76,7 @@ set laststatus=2
 set fileformats=unix,dos "use unix format as default
 set fileformat=unix "use unix format as default
 
-set   clipboard=unnamed
+"set   clipboard=unnamed
 "set clipboard+=unnamed
 "set clipboard*=unnamed
 "wildmenu"""""""""""""""""""""""""""""""""""""""""
@@ -376,6 +378,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.pcml setf xml
     au BufNewFile,BufRead *.htmldoc setf html
     au BufNewFile,BufRead *.htm setf html
+    au BufRead,BufNewFile *.wpy setlocal filetype=vue.html.javascript.css 
     au BufNewFile,BufRead *.m setf c 
     autocmd FileType make setlocal noexpandtab
     autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab |set foldmethod=indent
