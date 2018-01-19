@@ -316,6 +316,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['eslint']
 "To enable Just puppet-lint and disable the parser uncomment next line
 "let g:syntastic_puppet_checkers=['puppet-lint']
 
