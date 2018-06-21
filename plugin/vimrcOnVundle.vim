@@ -308,6 +308,8 @@ let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,*.svn*,*.so,*.a,*.o,*.pyc"
 let g:jedi#call_signature_escape=1 
 
 
+let g:vue_disable_pre_processors=1
+
 "========================================================= 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -381,6 +383,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.htm setf html
     au BufRead,BufNewFile *.wpy setlocal filetype=vue.html.javascript.css 
     au BufNewFile,BufRead *.m setf c 
+    au BufRead,BufNewFile *.wpy setlocal filetype=vue.html.javascript.css
     autocmd FileType make setlocal noexpandtab
     autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab |set foldmethod=indent
     autocmd FileType c,cpp,java,javascript set sts=4| set tabstop=4|set shiftwidth=4|set expandtab 
