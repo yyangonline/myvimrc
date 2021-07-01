@@ -1,4 +1,5 @@
 
+"Bundle 'evanmiller/nginx-vim-syntax'
 
 
 "colorscheme vividchalk
@@ -339,6 +340,9 @@ let g:clang_exec='clang++'
 "let g:clang_hl_errors=1
 let g:clang_complete_copen=1
 let g:clang_periodic_quickfix=1
+
+
+let g:snipMate = { 'snippet_version' : 1 }
 "let g:clang_snippets=1
 "let g:clang_close_preview=1
 nmap <leader>uq :call g:ClangUpdateQuickFix()
