@@ -352,9 +352,9 @@ nmap <leader>uq :call g:ClangUpdateQuickFix()
 
 "========================================================= 
 "ultisnips
-   let g:UltiSnipsExpandTrigger="<tab>"
-   let g:UltiSnipsJumpForwardTrigger="<tab>"
-   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+   "let g:UltiSnipsExpandTrigger="<tab>"
+   "let g:UltiSnipsJumpForwardTrigger="<tab>"
+   "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "Surrounded
 let b:surround_{char2nr("v")} = "{{ \r }}"
@@ -388,13 +388,19 @@ augroup filetypedetect
     au BufRead,BufNewFile *.wpy setlocal filetype=vue.html.javascript.css 
     au BufNewFile,BufRead *.m setf c 
     au BufRead,BufNewFile *.wpy setlocal filetype=vue.html.javascript.css
+    au BufNewFile,BufRead *.html,*.js,*.vue set tabstop=2
+    au BufNewFile,BufRead *.html,*.js,*.vue set softtabstop=2
+    au BufNewFile,BufRead *.html,*.js,*.vue set shiftwidth=2
+    au BufNewFile,BufRead *.html,*.js,*.vue set expandtab
+    au BufNewFile,BufRead *.html,*.js,*.vue set autoindent
+    au BufNewFile,BufRead *.html,*.js,*.vue set fileformat=unix
     autocmd FileType make setlocal noexpandtab
     autocmd FileType python set sts=4| set tabstop=4|set shiftwidth=4|set expandtab |set foldmethod=indent
     autocmd FileType c,cpp,java,javascript set sts=4| set tabstop=4|set shiftwidth=4|set expandtab 
-    autocmd FileType javascript set sts=4| set tabstop=4|set shiftwidth=4|set expandtab 
+    "autocmd FileType javascript set sts=4| set tabstop=4|set shiftwidth=4|set expandtab 
     autocmd FileType sh set sts=4|set tabstop=4|set shiftwidth=4|set expandtab
     "autocmd FileType html set ft=htmldjango.html " For SnipMate
-    autocmd FileType html set ft=htmldjango " For SnipMate
+    "autocmd FileType html set ft=htmldjango " For SnipMate
 augroup END
 
 
